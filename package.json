@@ -1,0 +1,31 @@
+{
+  "name": "html-spellcheck",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HTML file spell-checker",
+  "keywords": [
+    "html",
+    "spell",
+    "spell-check",
+    "spellcheck",
+    "spelling"
+  ],
+  "license": "MIT",
+  "author": "Matthew Tylee Atkinson",
+  "bin": {
+    "html-spellcheck": "./html-spellcheck"
+  },
+  "scripts": {
+    "precommit": "npm test",
+    "test": "eslint ."
+  },
+  "dependencies": {
+    "core-text-spellcheck": "github:matatk/core-text-spellcheck#0.2.0",
+    "html-text-extract": "github:matatk/html-text-extract#0.1.1",
+    "yargs": "~11.0"
+  },
+  "devDependencies": {
+    "eslint": "~4.16",
+    "husky": "~0.14"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "html-spellcheck",
+  "name": "html-spellcheck-cli",
   "version": "0.1.0",
   "private": true,
   "description": "HTML file spell-checker",
@@ -10,14 +10,22 @@
     "spellcheck",
     "spelling"
   ],
+  "homepage": "https://github.com/matatk/html-spellcheck-cli#readme",
+  "bugs": {
+    "url": "https://github.com/matatk/html-spellcheck-cli/issues"
+  },
   "license": "MIT",
   "author": "Matthew Tylee Atkinson",
   "bin": {
     "html-spellcheck": "./html-spellcheck"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matatk/html-spellcheck-cli.git"
+  },
   "scripts": {
     "precommit": "npm test",
-    "test": "eslint ."
+    "test": "eslint html-spellcheck"
   },
   "dependencies": {
     "core-text-spellcheck": "github:matatk/core-text-spellcheck#0.2.0",

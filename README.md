@@ -1,7 +1,7 @@
-html-spellcheck
-===============
+html-spellcheck-cli
+===================
 
-This is a simple command-line tool for spell-checking HTML files (based on [core-text-spellcheck](https://github.com/matatk/core-text-spellcheck) and [html-text-extract](https://github.com/matatk/html-text-extract)).
+This is a simple command-line tool for spell-checking HTML files (based on [core-text-spellcheck](https://github.com/matatk/core-text-spellcheck) and [html-text-extract](https://github.com/matatk/html-text-extract)).  It checks the text content of elements, and some "user-facing" attributes (as per the [html-text-extract documentation](https://github.com/matatk/html-text-extract#html-text-extract)).
 
 Development
 -----------

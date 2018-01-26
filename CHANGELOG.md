@@ -1,6 +1,10 @@
 Change Log
 ==========
 
+## [0.2.1](https://github.com/matatk/html-spellcheck-cli/compare/0.2.0...0.2.1) (2018-01-26)
+
+* Update API to work with [core-text-spellcheck-cli](https://github.com/matatk/core-text-spellcheck-cli) 0.2.0.
+
 ## [0.2.0](https://github.com/matatk/html-spellcheck-cli/compare/0.1.0...0.2.0) (2018-01-26)
 
 * Ask [html-text-extract](https://github.com/matatk/html-text-extract) to ignore `<code>` elements.

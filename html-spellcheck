@@ -4,7 +4,8 @@ const parsingErrorsWarning = `If you get any HTML parsing errors, you can redire
     $0 ... 2>/dev/null`
 const hte = require('html-text-extract')
 require('core-text-spellcheck-cli')({
-	spellChecker: require('core-text-spellcheck'),
+	spellCheckerInit: (options) => require('core-text-spellcheck')(options),
+	spellCheckerCall: (spellChecker, content) => spellChecker(content),
 	usageMessage: parsingErrorsWarning,
 	preProcessor: (text) => hte(text, true)
 })()

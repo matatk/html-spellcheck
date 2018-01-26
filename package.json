@@ -1,6 +1,6 @@
 {
   "name": "html-spellcheck-cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "HTML file spell-checker",
   "keywords": [
@@ -28,9 +28,9 @@
     "test": "eslint html-spellcheck"
   },
   "dependencies": {
-    "core-text-spellcheck": "github:matatk/core-text-spellcheck#0.2.0",
-    "html-text-extract": "github:matatk/html-text-extract#0.1.1",
-    "yargs": "~11.0"
+    "core-text-spellcheck": "github:matatk/core-text-spellcheck#0.3.0",
+    "core-text-spellcheck-cli": "github:matatk/core-text-spellcheck-cli#0.1.0",
+    "html-text-extract": "github:matatk/html-text-extract#0.1.1"
   },
   "devDependencies": {
     "eslint": "~4.16",

@@ -1,78 +1,10 @@
 #!/usr/bin/env node
 'use strict'
-const fs = require('fs')
+const parsingErrorsWarning = `If you get any HTML parsing errors, you can redirect stderr:
+    $0 ... 2>/dev/null`
 const hte = require('html-text-extract')
-const argv = require('yargs')
-	.usage('$0 [options] <files...>', false, (yargs) => {
-		yargs
-			.boolean('filenames')
-			.describe('filenames', 'List files being checked')
-			.alias('f', 'filenames')
-			.boolean('debug')
-			.describe('debug', 'Show debugging info')
-			.alias('d', 'debug')
-			.string('valid-words-file')
-			.describe('valid-words-file',
-				'File containing words to add to dictionary')
-			.alias('v', 'valid-words-file')
-			.string('warning-words-file')
-			.describe('warning-words-file',
-				'File containing words to warn about')
-			.alias('w', 'warning-words-file')
-			.help()
-			.alias('h', 'help')
-			.positional('<files...>', {
-				type: 'string',
-				describe: 'The file, or files, to check'
-			})
-	})
-	.argv
-
-function findErrorsInFile(sc, fileName) {
-	if (argv.filenames) {
-		console.log(`Checking file: "${fileName}"...`)
-	}
-
-	sc.check(hte(fs.readFileSync(fileName).toString()))
-}
-
-function fileToArray(fileName) {
-	if (fileName) {
-		return fs.readFileSync(fileName).toString().trim().split('\n')
-	}
-	return []
-}
-
-function main() {
-	let foundErrors = 0
-	let foundWarnings = 0
-	let currentFile
-
-	const sc = require('core-text-spellcheck')({
-		log: argv.debug ? console.log : null,
-		errors: (errors) => {
-			console.log(`Error: ${currentFile}: ${errors.join(', ')}`)
-			foundErrors++
-		},
-		warnings: (warnings) => {
-			console.log(`Warning: ${currentFile}: ${warnings.join(', ')}`)
-			foundWarnings++
-		},
-		warnWords: fileToArray(argv.warningWordsFile),
-		validWords: fileToArray(argv.validWordsFile)
-	})
-
-	for (const fileToCheck of argv.files) {
-		currentFile = fileToCheck
-		findErrorsInFile(sc, fileToCheck)
-	}
-
-	if (foundErrors > 0 || foundWarnings > 0) {
-		console.log()
-	}
-
-	console.log(`Check complete; there were ${foundErrors} errors and ${foundWarnings} warnings.`)
-	process.exit(foundErrors)
-}
-
-main()
+require('core-text-spellcheck-cli')({
+	spellChecker: require('core-text-spellcheck'),
+	usageMessage: parsingErrorsWarning,
+	preProcessor: (text) => hte(text, true)
+})()
